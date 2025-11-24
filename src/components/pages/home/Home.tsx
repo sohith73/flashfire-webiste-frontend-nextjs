@@ -37,7 +37,6 @@ const Home = () => {
       <HomePagePricingPlans />
       <HomePageFoundersNote />
       <HomePageCareerCTA />
-      <HomePageDemoCTA />
 
       {/* using useState, so client */}
      
@@ -47,6 +46,7 @@ const Home = () => {
       <HomePagePTNote /> {/* PT section not so good */}
      
       <HomePageFAQ /> {/* using useState, so client */}
+      <HomePageDemoCTA />
      
      
       <Footer />
