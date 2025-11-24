@@ -1,0 +1,137 @@
+/* === DEMO SECTION === */
+.demoSectionOuter {
+
+  padding: 0.4rem;
+  width: 90%;
+  margin: 8rem auto 0;
+  border-radius: 0.3rem;
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+}
+
+.demoSection {
+  background-color: #ff4c00;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.2rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.demoSubheading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  margin-bottom: 1rem;
+}
+
+.demoHeading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02rem;
+}
+
+.fireIcon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.demoText {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+}
+
+.demoText em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.demoButton {
+  background-color: #fff;
+  color: #111;
+  border: 0.1rem solid #111;
+  border-radius: 0.4rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.2rem 0 #000;
+}
+
+.demoButton:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.4rem 0 #000;
+}
+
+.demoNote {
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+}
+
+/* === TABLET === */
+@media (max-width: 1024px) {
+  .demoSectionOuter {
+    width: 85%;
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .demoSectionOuter {
+    width: 100%;
+    margin-top: 6rem;
+  }
+
+  .demoSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .demoHeading {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .demoSubheading {
+    font-size: 1rem;
+  }
+
+  .demoText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .demoButton {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.4rem;
+  }
+
+  .demoNote {
+    font-size: 0.85rem;
+  }
+}
+
+/* === SMALL PHONES === */
+@media (max-width: 480px) {
+  .demoHeading {
+    font-size: 1.6rem;
+  }
+
+  .demoText {
+    font-size: 0.85rem;
+  }
+
+  .demoButton {
+    font-size: 0.9rem;
+  }
+
+  .demoNote {
+    font-size: 0.8rem;
+  }
+}
+
