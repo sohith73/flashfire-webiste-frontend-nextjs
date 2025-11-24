@@ -216,7 +216,8 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} name="signupform" className="space-y-4">
+          {/* COMMENTED OUT: Form is bypassed - Calendly opens directly from buttons */}
+          {/* <form onSubmit={handleSubmit} name="signupform" className="space-y-4">
             <div>
               <label className="block text-left text-sm font-medium text-gray-700 mb-2">
                 <User className="w-4 h-4 inline mr-2" /> Full Name
@@ -309,11 +310,11 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
             >
               Submit
             </button>
-          </form>
+          </form> */}
 
-          <p className="text-center text-sm text-gray-500 mt-6">
+          {/* <p className="text-center text-sm text-gray-500 mt-6">
             No spam, ever. We respect your privacy.
-          </p>
+          </p> */}
         </div>
       </div>
 
