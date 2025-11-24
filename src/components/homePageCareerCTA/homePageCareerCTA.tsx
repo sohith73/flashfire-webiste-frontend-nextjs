@@ -108,25 +108,28 @@ export default function HomePageCareerCTA() {
             <div className={styles.userNote}>
               <div className={styles.userAvatars}>
                 <Image
-                  src="/images/user1.jpg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aman%20(1).jpg"
                   alt="user1"
                   width={28}
                   height={28}
                   className={styles.avatar}
+                  unoptimized
                 />
                 <Image
-                  src="/images/user2.jpg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/anjali.jpeg"
                   alt="user2"
                   width={28}
                   height={28}
                   className={styles.avatar}
+                  unoptimized
                 />
                 <Image
-                  src="/images/user3.jpg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aryan.jpg"
                   alt="user3"
                   width={28}
                   height={28}
                   className={styles.avatar}
+                  unoptimized
                 />
               </div>
               <p>
