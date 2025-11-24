@@ -488,7 +488,7 @@ export default function PricingCard({
                   <div className="text-xs opacity-90">{upgradePlan.subTitle}</div>
                 </div>
                 <div className="font-bold text-sm">
-                  +{currencySymbol}{(upgradePlan as any).upgradePrice || 0}
+                  {currencySymbol}{(upgradePlan as any).upgradePrice || 0}
                 </div>
               </div>
             </button>
