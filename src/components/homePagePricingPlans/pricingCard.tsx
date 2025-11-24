@@ -44,12 +44,13 @@ interface UpgradePrice {
   from: string;
   to: string;
   price: number;
+  paymentUrl?: string;
 }
 
 const upgradePrices: UpgradePrice[] = [
-  { from: "IGNITE", to: "PROFESSIONAL", price: 170 },
-  { from: "IGNITE", to: "EXECUTIVE", price: 420 },
-  { from: "PROFESSIONAL", to: "EXECUTIVE", price: 285 },
+  { from: "IGNITE", to: "PROFESSIONAL", price: 170, paymentUrl: "https://www.paypal.com/ncp/payment/7Z7GT5CF75L3A" },
+  { from: "IGNITE", to: "EXECUTIVE", price: 420, paymentUrl: "https://www.paypal.com/ncp/payment/AHW9DGNYWABZ4" },
+  { from: "PROFESSIONAL", to: "EXECUTIVE", price: 285, paymentUrl: "https://www.paypal.com/ncp/payment/VR5YKZW26JUEL" },
 ];
 
 // Booster options with payment URLs for different plans and countries
@@ -222,10 +223,12 @@ export default function PricingCard({
           up => up.from === title && up.to === plan.title
         );
         const upgradePrice = upgradePriceConfig?.price || 0;
+        const upgradePaymentUrl = upgradePriceConfig?.paymentUrl;
         
         return {
           ...plan,
           upgradePrice: upgradePrice, // Add upgrade price to the plan object
+          upgradePaymentUrl: upgradePaymentUrl, // Add upgrade payment URL
         };
       });
   }, [title, allPlans]);
@@ -252,14 +255,14 @@ export default function PricingCard({
     return planBoosterOptions[country]?.[title] || [];
   }, [country, title]);
 
-  // Calculate displayed price: if upgrade selected, show base price + upgrade price; if booster selected, show booster price; otherwise show base price
+  // Calculate displayed price: if upgrade selected, show only upgrade price; if booster selected, show booster price; otherwise show base price
   const displayedPrice = useMemo(() => {
     // Priority: Upgrade > Booster > Base
     if (selectedUpgrade) {
       const upgradePlan = upgradeOptions.find(plan => plan.title === selectedUpgrade);
       if (upgradePlan && (upgradePlan as any).upgradePrice) {
-        // Show total price: base price + upgrade price
-        return basePrice + (upgradePlan as any).upgradePrice;
+        // Show only the upgrade price, not base + upgrade
+        return (upgradePlan as any).upgradePrice;
       }
     }
     
@@ -279,6 +282,10 @@ export default function PricingCard({
     // Priority: Upgrade > Booster > Original
     if (selectedUpgrade) {
       const upgradePlan = upgradeOptions.find(plan => plan.title === selectedUpgrade);
+      // First check for upgrade-specific payment URL, then fall back to plan's paymentLink
+      if (upgradePlan && (upgradePlan as any).upgradePaymentUrl) {
+        return (upgradePlan as any).upgradePaymentUrl;
+      }
       if (upgradePlan?.paymentLink) {
         return upgradePlan.paymentLink;
       }
@@ -374,7 +381,13 @@ export default function PricingCard({
 
       {upgradeOptions.length > 0 && (
         <button
-          onClick={() => setShowUpgradeOptions(!showUpgradeOptions)}
+          onClick={() => {
+            if (showUpgradeOptions) {
+              // When hiding, clear the selected upgrade to reset to default price
+              setSelectedUpgrade(null);
+            }
+            setShowUpgradeOptions(!showUpgradeOptions);
+          }}
           className="bg-[#ff4c00] text-white border-none py-2 px-4 font-semibold text-sm rounded-[0.5rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#e24300] mb-4"
         >
           {showUpgradeOptions ? "Hide Upgrade Options" : "Upgrade Plan"}
