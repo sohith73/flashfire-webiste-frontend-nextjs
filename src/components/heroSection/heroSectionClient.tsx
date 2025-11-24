@@ -102,14 +102,19 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === Trusted Users === */}
       <div className={styles.heroUserTrust}>
         <div className={styles.heroUserIcons}>
-          {["user1.jpg", "user2.jpg", "user3.jpg"].map((img, i) => (
+          {[
+            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aman%20(1).jpg",
+            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/anjali.jpeg",
+            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aryan.jpg"
+          ].map((img, i) => (
             <div key={i} className={styles.heroUserCircleWrapper}>
               <Image
-                src={`/images/${img}`}
+                src={img}
                 alt={`User ${i + 1}`}
                 fill
                 sizes="2.2rem"
                 className={styles.heroUserCircle}
+                unoptimized
               />
             </div>
           ))}
