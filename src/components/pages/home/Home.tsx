@@ -23,6 +23,7 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection /> {/* using useState, so client */}
+      <HomePageCareerCTA />
       <HomePageResultStats />
       <HomePageStatsCards />
       <HomePageOfferLetters />
@@ -36,7 +37,6 @@ const Home = () => {
       <HomePageHappyUsers />
       <HomePagePricingPlans />
       <HomePageFoundersNote />
-      <HomePageCareerCTA />
 
       {/* using useState, so client */}
      
