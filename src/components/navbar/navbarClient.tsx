@@ -559,7 +559,7 @@ export default function NavbarClient({ links, ctas }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackButtonClick("Talk to an Expert", "navigation", "cta", {
+                trackButtonClick(ctas.primary.label, "navigation", "cta", {
                   button_location: "navbar_desktop",
                   navigation_type: "primary_cta"
                 });
@@ -576,21 +576,16 @@ export default function NavbarClient({ links, ctas }: Props) {
             <Link
               href={ctas.primary.href}
               className={styles.navPrimaryButton}
-              onClick={(e) => {
-                e.preventDefault();
-                
-                // Get UTM params and navigate
-                const utmParams = getCurrentUTMParams();
-                const targetPath = utmParams ? `${ctas.primary.href}?${utmParams}` : ctas.primary.href;
-                
-                // PostHog tracking
-                trackButtonClick("Talk to an Expert", "navigation", "cta", {
+              onClick={() => {
+                trackButtonClick(ctas.primary.label, "navigation", "cta", {
                   button_location: "navbar_desktop",
                   navigation_type: "primary_cta"
                 });
-                
-                // Navigate to /talk-to-an-expert with preserved UTM params
-                router.push(targetPath);
+                if (ctas.primary.href.includes("calendly")) {
+                  trackModalOpen("calendly_modal", "navigation_button", {
+                    trigger_source: "navbar_cta"
+                  });
+                }
               }}
             >
               {ctas.primary.label}
@@ -647,26 +642,14 @@ export default function NavbarClient({ links, ctas }: Props) {
               className={styles.navMobilePrimary}
               target={primaryIsExternal ? "_blank" : undefined}
               rel={primaryIsExternal ? "noopener noreferrer" : undefined}
-              onClick={(e) => {
-                if (!primaryIsExternal) {
-                  e.preventDefault();
-                  
-                  // Get UTM params and navigate
-                  const utmParams = getCurrentUTMParams();
-                  const targetPath = utmParams ? `${ctas.primary.href}?${utmParams}` : ctas.primary.href;
-                  
-                  // PostHog tracking
-                  trackButtonClick("Talk to an Expert", "navigation", "cta", {
-                    button_location: "navbar_mobile",
-                    navigation_type: "primary_cta"
-                  });
-                  
-                  // Navigate to /talk-to-an-expert with preserved UTM params
-                  router.push(targetPath);
-                } else {
-                  trackButtonClick("Talk to an Expert", "navigation", "cta", {
-                    button_location: "navbar_mobile",
-                    navigation_type: "primary_cta"
+              onClick={() => {
+                trackButtonClick(ctas.primary.label, "navigation", "cta", {
+                  button_location: "navbar_mobile",
+                  navigation_type: "primary_cta"
+                });
+                if (ctas.primary.href.includes("calendly")) {
+                  trackModalOpen("calendly_modal", "navigation_button", {
+                    trigger_source: "navbar_mobile_cta"
                   });
                 }
               }}
@@ -693,6 +676,21 @@ export default function NavbarClient({ links, ctas }: Props) {
             Get flat $20 discount on all plans
           </span>
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
+            ✱
+          </span>
+        </div>
+        {/* Mobile text part - visible only on mobile */}
+        <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
+          <span className="font-bold text-[0.75rem] text-black tracking-[0.02em] uppercase whitespace-nowrap">
+            BLACK FRIDAY SALE
+          </span>
+          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
+            ✱
+          </span>
+          <span className="text-[0.7rem] text-black font-medium whitespace-nowrap">
+            Get flat $20 discount on all plans
+          </span>
+          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
             ✱
           </span>
         </div>
