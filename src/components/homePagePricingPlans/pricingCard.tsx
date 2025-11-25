@@ -438,7 +438,7 @@ export default function PricingCard({
           }
           
           // PostHog tracking
-          trackButtonClick(`Get Me Interview - ${finalPlanName}`, "pricing_cta", "cta", {
+          trackButtonClick(`Start Now - ${finalPlanName}`, "pricing_cta", "cta", {
             button_location: "pricing_plan",
             plan_name: finalPlanName,
             original_plan: title,
@@ -455,7 +455,7 @@ export default function PricingCard({
           }
         }}
       >
-        {selectedUpgrade ? `Upgrade to ${selectedUpgrade} →` : "Get Me Interview →"}
+       {selectedUpgrade ? `Upgrade to ${selectedUpgrade} →` : "Start Now"}
       </button>
     </div>
 
