@@ -32,12 +32,12 @@
 
 .marqueeCard {
   background-color: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 0.6rem;
-  padding: 2.5rem;
+  border: 1px solid #fdfdfdec;
+  
+  padding: 2rem;
   width: 28rem;
-  min-height: 20rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  min-height: 10rem;
+  box-shadow: 0 4px 10px rgba(246, 97, 17, 0);
   text-align: left;
   flex-shrink: 0;
   transition:
@@ -287,7 +287,7 @@
 
   .marqueeCard {
     width: 22rem;
-    min-height: 18rem;
+    min-height: 14rem;
     padding: 2rem;
   }
 
@@ -333,7 +333,7 @@
 
   .marqueeCard {
     width: 18rem;
-    min-height: 16rem;
+    min-height: 12rem;
     padding: 1.6rem;
   }
 }

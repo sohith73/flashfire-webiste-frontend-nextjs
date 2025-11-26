@@ -118,12 +118,22 @@ export default function HomePageMilestonesClient() {
       role: "BA 1",
       image: "/images/aman.jpg",
     },
+    
+    {
+      company: "Cvent",
+      domain: "cvent.com",
+      text: "Getting placed at Cvent as a Product Consultant wouldn’t have been possible without Flashfire. They made my entire job search effortless.",
+      user: " Harkirat Singh",
+      role: "Product Consultant",
+      image: "/images/harkirat.png",
+    },
+
   ];
 
   return (
     <section className={styles.milestoneContainer}>
       {/* === Section Heading === */}
-      <h4 className={styles.sectionHeading}>INTERVIEWS CRACKED BY OUR USERS</h4>
+      <h4 className={styles.sectionHeading}>INTERVIEWS CRACKED</h4>
 
       {/* === Continuous Marquee Testimonials === */}
       <div className={styles.marqueeContainer}>
