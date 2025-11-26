@@ -105,6 +105,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
           <h1 className={styles.title}>{post.title}</h1>
 
           <div className={styles.meta}>
+            <span>✍️ By Rachna Goyal</span>
             <span>📅 {post.date}</span>
             <span>⏱️ {post.readTime}</span>
           </div>

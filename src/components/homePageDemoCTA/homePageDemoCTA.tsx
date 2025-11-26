@@ -18,7 +18,7 @@ export default function HomePageDemoCTA() {
 
   return (
     <section className={styles.demoSectionOuter}>
-      <div className={`${styles.demoSection} bg-[rgba(245,93,29,1)]`}>
+      <div className={styles.demoSection}>
         <h5 className={styles.demoSubheading}>
           GOT FURTHER QUESTIONS? LET&rsquo;S TALK!
         </h5>

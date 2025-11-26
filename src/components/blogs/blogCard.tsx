@@ -44,6 +44,11 @@ export default function BlogCard({ blog }: { blog: Blog }) {
 
           <h3 className="text-[1.2rem] font-bold text-[#111] mb-2.5 leading-[1.4] line-clamp-2">{blog.title}</h3>
 
+          {/* Author */}
+          <p className="text-[0.9rem] text-[#666] mb-2">
+            By <span className="font-semibold text-[#111]">Rachna Goyal</span>
+          </p>
+
           <p className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3">{blog.excerpt}</p>
 
           <div className="flex flex-row gap-5 text-[0.95rem] text-[#777] font-medium">
