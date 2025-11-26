@@ -5,6 +5,17 @@ import { FaRegClock } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import Link from "next/link";
 
+const authorNames = [
+  "Ananya Sharma",
+  "Rajesh Kumar",
+  "Priya Iyer",
+  "Arjun Mehta",
+  "Neha Verma",
+  "Rohan Patel",
+  "Sneha Reddy",
+  "Karan Malhotra",
+];
+
 type Blog = {
   id: number;
   slug?: string;
@@ -18,6 +29,9 @@ type Blog = {
 };
 
 export default function BlogCard({ blog }: { blog: Blog }) {
+  const author =
+    authorNames[(blog.id - 1 + authorNames.length) % authorNames.length];
+
   return (
     <section className="border border-gray-200 rounded-[0.1rem] p-[0.3rem] bg-white transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.08)]">
       <Link
@@ -43,6 +57,11 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           </p>
 
           <h3 className="text-[1.2rem] font-bold text-[#111] mb-2.5 leading-[1.4] line-clamp-2">{blog.title}</h3>
+
+          {/* Author */}
+          <p className="text-[0.9rem] text-[#666] mb-2">
+            By <span className="font-semibold text-[#111]">{author}</span>
+          </p>
 
           <p className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3">{blog.excerpt}</p>
 
