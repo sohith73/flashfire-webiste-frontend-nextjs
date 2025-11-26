@@ -122,7 +122,7 @@ export default function HomePageMilestonesClient() {
     {
       company: "Cvent",
       domain: "cvent.com",
-      text: "Getting placed at Cvent as a Product Consultant wouldn’t have been possible without Flashfire. They made my entire job search effortless.",
+      text: "Getting placed at Cvent as a Product Consultant wouldn't have been possible without Flashfire. The platform's automated application system handled everything while I focused on interview preparation. The AI-powered resume optimization and intelligent job matching ensured I was applying to the right roles. Flashfire made my entire job search effortless, and I couldn't be happier with the results!",
       user: " Harkirat Singh",
       role: "Product Consultant",
       image: "/images/harkirat.png",
