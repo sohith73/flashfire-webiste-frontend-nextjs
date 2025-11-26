@@ -13,17 +13,6 @@ import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import Link from "next/link";
 
-const authorNames = [
-  "Ananya Sharma",
-  "Rajesh Kumar",
-  "Priya Iyer",
-  "Arjun Mehta",
-  "Neha Verma",
-  "Rohan Patel",
-  "Sneha Reddy",
-  "Karan Malhotra",
-];
-
 type BlogPost = {
   id: number;
   slug: string;
@@ -37,9 +26,6 @@ type BlogPost = {
 };
 
 export default function BlogsPage({ post }: { post: BlogPost }) {
-  const author =
-    authorNames[(post.id - 1 + authorNames.length) % authorNames.length];
-
   useEffect(() => {
     if (!post) return;
 
@@ -119,7 +105,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
           <h1 className={styles.title}>{post.title}</h1>
 
           <div className={styles.meta}>
-            <span>✍️ By {author}</span>
+            <span>✍️ By Rachna Goyal</span>
             <span>📅 {post.date}</span>
             <span>⏱️ {post.readTime}</span>
           </div>
