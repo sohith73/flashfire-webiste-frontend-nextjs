@@ -109,7 +109,7 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === Trusted Users === */}
       <div className="flex items-center justify-center gap-2.5 mb-12">
         <div className="flex items-center">
-          {["user1.jpg", "user2.jpg", "user3.jpg"].map((img, i) => (
+          {["amit.jpg", "aman.jpg", "akrati.jpeg"].map((img, i) => (
             <div key={i} className={`relative w-[2.2rem] h-[2.2rem] rounded-full border-2 border-white overflow-hidden -ml-3.5 shadow-[0_0_0_1px_rgba(0,0,0,0.05)] ${i === 0 ? 'ml-0' : ''}`}>
               <Image
                 src={`/images/${img}`}
