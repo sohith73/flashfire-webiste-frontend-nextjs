@@ -29,7 +29,7 @@ const INITIAL_SPEED_SLOW = 200; // Slower for additional snakes
 export default function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const gameLoopRefs = useRef<{ [key: number]: number | null }>({});
+  const gameLoopRefs = useRef<{ [key: number]: ReturnType<typeof setTimeout> | null }>({});
   const snakesRef = useRef<Snake[]>([]);
 
   useEffect(() => {
@@ -201,7 +201,7 @@ export default function SnakeGame() {
       // Check food collision
       if (newHead.x === snake.food.x && newHead.y === snake.food.y) {
         snake.body.unshift(newHead);
-        let newFood;
+        let newFood: Position;
         do {
           newFood = {
             x: Math.floor(Math.random() * cols),
