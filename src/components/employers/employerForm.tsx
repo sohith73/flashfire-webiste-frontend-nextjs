@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import {
   Building,
   Phone,
@@ -157,101 +156,10 @@ export default function EmployerForm() {
   return (
     <div className="min-h-screen bg-white">
       <div className="flex min-h-screen">
-        {/* Left Column - Hero Section */}
-        <div className="relative hidden lg:flex lg:w-1/2">
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/partnerWithFF.jpg"
-              alt="Partner with Flashfire"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-            
-            {/* Top Left Section - Heading */}
-            <div className="absolute left-8 top-8 z-20">
-              <div className="text-white font-['Space_Grotesk',sans-serif]">
-                <h1 className="text-[48px] font-bold leading-[1.1] max-w-2xl">
-                  <span className="inline-flex items-center">
-                    Partner with{" "}
-                    <Image
-                      src="/images/character1.png"
-                      alt="Flashfire"
-                      width={90}
-                      height={90}
-                      className="mx-3 inline-block object-contain"
-                    />
-                  </span>
-                  <br />
-                  Flashfire to Find
-                  <br />
-                  Top Talent, Fast.
-                </h1>
-              </div>
-            </div>
-
-            {/* Bottom Right Section - Description */}
-            <div className="absolute bottom-32 right-8 z-20 max-w-md">
-              <p className="text-[20px] leading-relaxed text-white font-['Space_Grotesk',sans-serif]">
-                Flashfire&apos;s AI platform helps you
-                <br />
-                discover, screen, and hire the best
-                <br />
-                talent with <em>speed and precision</em>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column - Form */}
-        <div className="flex w-full flex-col lg:w-1/2">
-          {/* Mobile Hero Section */}
-          <div className="relative h-64 bg-gray-900 lg:hidden">
-            <Image
-              src="/images/partnerWithFF.jpg"
-              alt="Partner with Flashfire"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/60"></div>
-            
-            {/* Top Left Section - Heading (Mobile) */}
-            <div className="absolute left-4 top-4 z-20">
-              <div className="text-white font-['Space_Grotesk',sans-serif]">
-                <h1 className="text-[24px] font-bold leading-[1.1] max-w-[240px] font-['Space_Grotesk',sans-serif]">
-                  <span className="inline-flex items-center">
-                    Partner with{" "}
-                    <Image
-                      src="/images/character1.png"
-                      alt="Flashfire"
-                      width={50}
-                      height={50}
-                      className="mx-2 inline-block object-contain"
-                    />
-                  </span>
-                  <br />
-                  Flashfire to Find
-                  <br />
-                  Top Talent, Fast.
-                </h1>
-              </div>
-            </div>
-
-            {/* Bottom Right Section - Description (Mobile) */}
-            <div className="absolute bottom-4 right-4 z-20 max-w-[200px]">
-              <p className="text-[14px] leading-relaxed text-white font-['Space_Grotesk',sans-serif]">
-                Flashfire&apos;s AI platform helps you
-                <br />
-                discover, screen, and hire the best
-                <br />
-                talent with <em>speed and precision</em>.
-              </p>
-            </div>
-          </div>
-
+        {/* Form Section - Full Width */}
+        <div className="flex w-full flex-col">
           {/* Form Container */}
-          <div className="flex flex-1 flex-col overflow-y-auto bg-white lg:pl-8 lg:pr-8">
+          <div className="flex flex-1 flex-col overflow-y-auto bg-white max-w-4xl mx-auto w-full px-6 py-8 lg:px-12">
             {/* Form Header */}
             <div className="bg-black px-6 py-4 lg:px-8">
               <h2 className="text-lg font-semibold uppercase tracking-wide text-white text-center">
