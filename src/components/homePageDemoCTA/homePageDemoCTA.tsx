@@ -79,7 +79,7 @@ export default function HomePageDemoCTA() {
         >
           BOOK A DEMO{" "}
           <span
-            className={`${styles.fireIcon} inline-flex items-center -mx-4 `}
+            className={`${styles.fireIcon} inline-flex items-center -mx-3 `}
           >
             <Image
               src="/images/character.png"

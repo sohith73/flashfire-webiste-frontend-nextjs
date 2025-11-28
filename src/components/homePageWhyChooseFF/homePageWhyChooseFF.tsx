@@ -269,12 +269,11 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} basis-[24.1%] max-[768px]:basis-full`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Lightning Fast Applications
+            Precision Targeting
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            A dedicated team of 4–5 people handles your job hunt, applying to
-            1200+ roles in 6–7 weeks. We’ll keep you posted with every update in
-            a WhatsApp group made just for you.
+            We only apply to jobs that fit your pay, location, company size, and
+            career goals — and only to jobs posted in the last 24–48 hours.
           </p>
         </article>
 
@@ -282,11 +281,12 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} basis-[36.7%] max-[768px]:basis-full`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Precision Targeting
+            Lightning Fast Applications
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            We only apply to jobs that fit your pay, location, company size, and
-            career goals — and only to jobs posted in the last 24–48 hours.
+            A dedicated team of 4–5 people handles your job hunt, applying to
+            1200+ roles in 6–7 weeks. We’ll keep you posted with every update in
+            a WhatsApp group made just for you.
           </p>
         </article>
 

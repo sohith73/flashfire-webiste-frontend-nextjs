@@ -8,7 +8,6 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { getCurrentUTMParams } from "@/src/utils/UTMUtils";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import SnakeGame from "./SnakeGame";
 
 type Props = {
   data: HeroSectionData;
@@ -23,14 +22,7 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="relative bg-[#f9e8e0] text-center p-8 pb-16 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-6 max-[768px]:px-4 max-[768px]:pb-12 max-[480px]:p-4 max-[480px]:px-3 max-[480px]:pb-8">
-      {/* === Snake Game Background === */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <SnakeGame />
-      </div>
-      
-      {/* Content wrapper with relative positioning */}
-      <div className="relative z-10">
+    <section className="bg-[#f9e8e0] text-center p-8 pb-16 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-6 max-[768px]:px-4 max-[768px]:pb-12 max-[480px]:p-4 max-[480px]:px-3 max-[480px]:pb-8">
       {/* === Top Badges === */}
       <div className="flex justify-center gap-2.5 flex-wrap mb-8 mt-8 max-[768px]:flex-row">
         {data.badges.map((badge) => (
@@ -148,7 +140,6 @@ export default function HeroSectionClient({ data }: Props) {
             ))}
           </div>
         </div>
-      </div>
       </div>
     </section>
   );
