@@ -407,6 +407,10 @@ export default function PricingCard({
         )}
       </div>
 
+      <p className="text-[0.8rem] text-[#555] mb-5">
+        Prices shown already include a {currencySymbol}20 discount.
+      </p>
+
        {/* <p className="text-[0.85rem] text-[#555] mb-5">
         Total {subTitle.toLowerCase()} included
       </p> */}
