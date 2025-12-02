@@ -27,7 +27,7 @@ export default function HomePagePricingPlans() {
         </p>
       </div>
 
-      <div className="flex justify-center gap-6 flex-wrap mb-16 max-[1024px]:gap-5 max-[768px]:flex-col max-[768px]:items-center max-[768px]:gap-8">
+      <div className="flex justify-center gap-6 flex-wrap mb-16 max-[1024px]:gap-5 max-[768px]:flex-col max-[768px]:items-center max-[768px]:gap-8 items-stretch">
         {pricingPlans.map((plan, index) => (
           <PricingCard
             key={index}

@@ -4,10 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Building,
-  Mail,
   Phone,
   MapPin,
-  Briefcase,
+  List,
   DollarSign,
   Calendar,
   Loader,
@@ -155,19 +154,21 @@ export default function EmployerForm() {
   };
 
   return (
-    <div className="min-h-screen bg-orange-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Partner with Flashfire
-          </h2>
-          <p className="mt-2 text-xl text-gray-600">
-            Find top talent faster with our AI-powered recruitment platform
-          </p>
-        </div>
+    <div className="min-h-screen bg-white">
+      <div className="flex min-h-screen">
+        {/* Form Section - Full Width */}
+        <div className="flex w-full flex-col">
+          {/* Form Container */}
+          <div className="flex flex-1 flex-col overflow-y-auto bg-white max-w-4xl mx-auto w-full px-6 py-8 lg:px-12">
+            {/* Form Header */}
+            <div className="bg-black px-6 py-4 lg:px-8">
+              <h2 className="text-lg font-semibold uppercase tracking-wide text-white text-center">
+                Share Your Details to Connect
+              </h2>
+            </div>
 
-        <div className="rounded-2xl border border-gray-100 bg-white shadow-sm">
-          <div className="px-6 py-8 sm:px-8">
+            {/* Form Content */}
+            <div className="flex-1 px-6 py-8 sm:px-8 lg:px-12">
             {error && (
               <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
                 <p className="text-sm text-red-600">{error}</p>
@@ -183,10 +184,10 @@ export default function EmployerForm() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-8">
-              <section>
+              <section className="mb-8">
                 <div className="mb-4 flex items-center">
-                  <Building className="mr-2 h-5 w-5 text-gray-400" />
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <Building className="mr-2 h-5 w-5 text-[#ff4c00]" />
+                  <h3 className="text-lg font-semibold text-gray-900">
                     Company Information
                   </h3>
                 </div>
@@ -204,8 +205,8 @@ export default function EmployerForm() {
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="Your company name"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="i.e., Technology, Finance"
                       required
                     />
                   </div>
@@ -222,8 +223,8 @@ export default function EmployerForm() {
                       name="industry"
                       value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="e.g., Technology, Finance, Healthcare"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="i.e., Technology, Finance"
                     />
                   </div>
                   <div>
@@ -238,7 +239,7 @@ export default function EmployerForm() {
                       name="companySize"
                       value={formData.companySize}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                     >
                       <option value="">Select company size</option>
                       {companySizes.map((size) => (
@@ -262,17 +263,17 @@ export default function EmployerForm() {
                       name="location"
                       value={formData.location}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="City, State/Country"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="City/State/Country"
                     />
                   </div>
                 </div>
               </section>
 
-              <section>
+              <section className="mb-8">
                 <div className="mb-4 flex items-center">
-                  <Mail className="mr-2 h-5 w-5 text-gray-400" />
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <Phone className="mr-2 h-5 w-5 text-[#ff4c00]" />
+                  <h3 className="text-lg font-semibold text-gray-900">
                     Contact Information
                   </h3>
                 </div>
@@ -290,7 +291,7 @@ export default function EmployerForm() {
                       name="contactName"
                       value={formData.contactName}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                       placeholder="Your full name"
                       required
                     />
@@ -308,17 +309,16 @@ export default function EmployerForm() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="your@company.com"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="yourname@company.com"
                       required
                     />
                   </div>
-                  <div className="md:col-span-2">
+                  <div>
                     <label
                       htmlFor="phone"
-                      className="mb-2 flex items-center text-sm font-medium text-gray-700"
+                      className="mb-2 block text-sm font-medium text-gray-700"
                     >
-                      <Phone className="mr-1 h-4 w-4" />
                       Phone Number *
                     </label>
                     <input
@@ -327,7 +327,7 @@ export default function EmployerForm() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                       placeholder="+1 (555) 123-4567"
                       required
                     />
@@ -335,10 +335,10 @@ export default function EmployerForm() {
                 </div>
               </section>
 
-              <section>
+              <section className="mb-8">
                 <div className="mb-4 flex items-center">
-                  <Briefcase className="mr-2 h-5 w-5 text-gray-400" />
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <List className="mr-2 h-5 w-5 text-[#ff4c00]" />
+                  <h3 className="text-lg font-semibold text-gray-900">
                     Hiring Needs
                   </h3>
                 </div>
@@ -356,8 +356,8 @@ export default function EmployerForm() {
                       name="jobTitle"
                       value={formData.jobTitle}
                       onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="e.g., Software Engineer, Data Analyst"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="i.e., Software Engineer, Data Analyst"
                     />
                   </div>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -375,8 +375,8 @@ export default function EmployerForm() {
                         name="salaryRange"
                         value={formData.salaryRange}
                         onChange={handleInputChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
-                      placeholder="e.g., $80,000 - $120,000"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
+                      placeholder="Salary Range"
                       />
                     </div>
                     <div>
@@ -392,7 +392,7 @@ export default function EmployerForm() {
                         name="urgency"
                         value={formData.urgency}
                         onChange={handleInputChange}
-                        className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                        className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                       >
                         <option value="">Select urgency</option>
                         {urgencyOptions.map((option) => (
@@ -416,7 +416,7 @@ export default function EmployerForm() {
                       value={formData.jobDescription}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                       placeholder="Brief description of the role and requirements"
                     />
                   </div>
@@ -433,18 +433,18 @@ export default function EmployerForm() {
                       value={formData.hiringNeeds}
                       onChange={handleInputChange}
                       rows={3}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-orange-500"
+                      className="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-gray-900 transition-colors duration-200 focus:border-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00]/20"
                       placeholder="Any specific requirements or additional information"
                     />
                   </div>
                 </div>
               </section>
 
-              <div className="pt-6">
+              <div className="pt-4">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex w-full items-center justify-center rounded-lg bg-orange-600 px-6 py-4 font-semibold text-white transition-colors duration-200 hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex w-full items-center justify-center rounded-lg bg-[#ff4c00] px-6 py-4 font-semibold text-white transition-colors duration-200 hover:bg-[#e64400] focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading ? (
                     <>
@@ -457,6 +457,7 @@ export default function EmployerForm() {
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
       </div>

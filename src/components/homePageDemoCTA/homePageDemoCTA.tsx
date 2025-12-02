@@ -79,14 +79,14 @@ export default function HomePageDemoCTA() {
         >
           BOOK A DEMO{" "}
           <span
-            className={`${styles.fireIcon} inline-flex items-center -mx-4 `}
+            className={styles.fireIcon}
           >
             <Image
               src="/images/character.png"
               alt="Flashfire mascot"
               width={96}
               height={96}
-              className="w-20 h-20  left-1 max-[600px]:w-16 max-[600px]:h-16"
+              className="w-20 h-20 max-[600px]:w-16 max-[600px]:h-16"
             />
           </span>{" "}
           CALL

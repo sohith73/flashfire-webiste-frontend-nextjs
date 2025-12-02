@@ -87,8 +87,8 @@
 .resultButton {
   background-color: #fff;
   color: #000;
-  border: none;
-  border-radius: 0.1rem;
+  border: 2px solid #000;
+  border-radius:0.5rem;
   padding: 0.9rem 1.6rem;
   font-weight: 600;
   font-size: 0.95rem;

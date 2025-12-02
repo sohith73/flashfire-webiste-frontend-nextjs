@@ -34,6 +34,8 @@
 .fireIcon {
   display: inline-flex;
   vertical-align: middle;
+  margin: 0 -0.5rem;
+  align-items: center;
 }
 
 .demoText {
@@ -85,16 +87,16 @@
 @media (max-width: 768px) {
   .demoSectionOuter {
     width: 100%;
-    margin: 2rem auto 4rem;
+    margin: 1.5rem auto 3.5rem;
   }
 
   .demoSection {
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.4rem;
   }
 
   .demoHeading {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 1.9rem;
+    line-height: 1.25;
   }
 
   .demoSubheading {
@@ -119,19 +121,26 @@
 /* === SMALL PHONES === */
 @media (max-width: 480px) {
   .demoHeading {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
   }
 
   .demoText {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
   }
 
   .demoButton {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    width: 100%;
+    max-width: 20rem;
   }
 
   .demoNote {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .fireIcon {
+    margin: 0 -0.3rem;
   }
 }
 
