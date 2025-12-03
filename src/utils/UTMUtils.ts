@@ -3,6 +3,8 @@
 // =====================================================
 
 // Get current UTM parameters from localStorage
+// NOTE: This is intentionally no longer used for building visible URLs.
+// We keep it only for any internal tracking needs that may serialize UTMs.
 export const getCurrentUTMParams = (): string => {
   if (typeof window === 'undefined') return '';
 
@@ -41,6 +43,29 @@ export const getUTMMedium = (): string => {
   return localStorage.getItem('utm_medium') || 'website';
 };
 
+// Helper: remove UTM params from the visible URL bar (but keep the path and any non-UTM params)
+export const stripUTMParamsFromUrl = (): void => {
+  if (typeof window === 'undefined') return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  // Remove all standard UTM params
+  params.delete("utm_source");
+  params.delete("utm_medium");
+  params.delete("utm_campaign");
+  params.delete("utm_content");
+  params.delete("utm_term");
+
+  const newSearch = params.toString();
+  const newUrl =
+    window.location.pathname +
+    (newSearch ? `?${newSearch}` : '') +
+    window.location.hash;
+
+  // Replace the current history entry without causing a navigation
+  window.history.replaceState(window.history.state, '', newUrl);
+};
+
 // Capture UTM parameters from URL and store in localStorage
 export const captureUTMParams = (): void => {
   if (typeof window === 'undefined') return;
@@ -73,4 +98,7 @@ export const captureUTMParams = (): void => {
     localStorage.setItem("utm_term", utmTerm);
     console.log("Stored utm_term:", utmTerm);
   }
+
+  // After capturing, clean UTMs from the visible URL
+  stripUTMParamsFromUrl();
 };

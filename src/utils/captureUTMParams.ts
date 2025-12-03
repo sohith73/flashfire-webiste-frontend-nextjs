@@ -1,3 +1,5 @@
+import { stripUTMParamsFromUrl } from "@/src/utils/UTMUtils";
+
 export const captureUTMParams = () => {
   if (typeof window === "undefined") {
     return;
@@ -62,6 +64,9 @@ export const captureUTMParams = () => {
       })
       .catch((err) => console.error("Campaign tracking failed:", err));
   }
+
+  // After capturing, clean UTMs from the visible URL
+  stripUTMParamsFromUrl();
 
   if (ref) {
     const payload = {

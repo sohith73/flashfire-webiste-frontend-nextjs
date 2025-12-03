@@ -728,7 +728,6 @@ import type { NavLink, NavbarCTA } from "../../types/navbarData";
 import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
-import { getCurrentUTMParams } from "@/src/utils/UTMUtils";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 type Props = {
@@ -880,9 +879,8 @@ export default function NavbarClient({ links, ctas }: Props) {
       navigation_type: "banner_cta",
     });
     
-    // Navigate to /book-now with preserved UTM params
-    const utmParams = getCurrentUTMParams();
-    const targetPath = utmParams ? `/book-now?${utmParams}` : '/book-now';
+    // Navigate to /book-now WITHOUT exposing UTM params in the URL
+    const targetPath = '/book-now';
     
     // Dispatch custom event to force show modal (even if already on the route)
     if (typeof window !== 'undefined') {

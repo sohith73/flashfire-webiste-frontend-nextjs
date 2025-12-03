@@ -91,9 +91,8 @@ export default function HomePageCareerCTA() {
                   sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
                 }
                 
-                // Navigate to /schedule-a-free-career-call with preserved UTM params
-                const utmParams = getCurrentUTMParams();
-                const targetPath = utmParams ? `/schedule-a-free-career-call?${utmParams}` : '/schedule-a-free-career-call';
+                // Navigate to /schedule-a-free-career-call WITHOUT exposing UTM params in the URL
+                const targetPath = '/schedule-a-free-career-call';
                 
                 // Dispatch custom event to force show modal (even if already on the route)
                 if (typeof window !== 'undefined') {
