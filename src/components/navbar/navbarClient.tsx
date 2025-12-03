@@ -769,12 +769,57 @@ export default function NavbarClient({ links, ctas }: Props) {
     return `${prefix}${href}`;
   };
 
-  // Countdown timer - Set end date to 2 days from the moment the user opens the site
+  // Han
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+
+    const sectionMap: { [key: string]: string } = {
+      '/feature': 'feature',
+      '/pricing': 'pricing',
+      '/testimonials': 'testimonials',
+      '/faq': 'faq',
+    };
+
+    const sectionId = sectionMap[href];
+    
+    if (sectionId && (pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/')) {
+      e.preventDefault();
+      
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          let targetElement: HTMLElement | null = section;
+          if (sectionId === 'faq') {
+            const faqHeader = document.getElementById('faq-header');
+            if (faqHeader) {
+              const h2 = faqHeader.querySelector('h2');
+              targetElement = h2 || faqHeader;
+            }
+          }
+          
+          if (targetElement) {
+            const stickyNavbar = document.querySelector('.sticky.top-0');
+            const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+            
+            const rect = targetElement.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const elementTop = rect.top + scrollTop;
+            
+            const offset = navbarHeight + 30;
+            const offsetPosition = Math.max(0, elementTop - offset);
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+          }
+        }
+      }, 100);
+    }
+  };
+
   useEffect(() => {
-    // Only run on client side
     if (typeof window === "undefined") return;
 
-    // Set the target date dynamically: current time + 2 days
     const now = new Date();
     const targetDate = new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000);
 
@@ -868,18 +913,43 @@ export default function NavbarClient({ links, ctas }: Props) {
 
         {/* Center Section: Links (Desktop) */}
         <ul className={styles.navLinks}>
-          {links.map((link) => (
-            <li key={link.href} className={styles.navLinkItem}>
-              <a 
-                href={getHref(link.href)} 
-                className={styles.navLinkText}
-                target={link.target}
-                rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isSectionLink = ['/feature', '/pricing', '/testimonials', '/faq'].includes(link.href);
+            const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
+            
+            return (
+              <li key={link.href} className={styles.navLinkItem}>
+                {isSectionLink && isOnHomePage ? (
+                  <a 
+                    href={`#${link.href.replace('/', '')}`}
+                    className={styles.navLinkText}
+                    onClick={(e) => handleSectionClick(e, link.href)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <a 
+                    href={getHref(link.href)} 
+                    className={styles.navLinkText}
+                    target={link.target}
+                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                    onClick={isSectionLink ? (e) => {
+                      // If not on home page, navigate first then scroll
+                      if (!isOnHomePage) {
+                        e.preventDefault();
+                        router.push(prefix + '/');
+                        setTimeout(() => {
+                          handleSectionClick(e, link.href);
+                        }, 500);
+                      }
+                    } : undefined}
+                  >
+                    {link.name}
+                  </a>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         {/* Right Section: CTAs (Desktop) */}
@@ -970,18 +1040,50 @@ export default function NavbarClient({ links, ctas }: Props) {
       {isMenuOpen && (
         <div className={styles.navMobileMenu}>
           <ul className={styles.navMobileLinks}>
-            {links.map((link) => (
-              <li key={link.href}>
-                <a 
-                  href={getHref(link.href)} 
-                  className={styles.navMobileLink}
-                  target={link.target}
-                  rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {links.map((link) => {
+              const isSectionLink = ['/feature', '/pricing', '/testimonials', '/faq'].includes(link.href);
+              const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
+              
+              return (
+                <li key={link.href}>
+                  {isSectionLink && isOnHomePage ? (
+                    <a
+                      href={`#${link.href.replace('/', '')}`}
+                      className={styles.navMobileLink}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMenuOpen(false);
+                        handleSectionClick(e, link.href);
+                      }}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <a 
+                      href={getHref(link.href)} 
+                      className={styles.navMobileLink}
+                      target={link.target}
+                      rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                      onClick={isSectionLink ? (e) => {
+                        setIsMenuOpen(false);
+                        // If not on home page, navigate first then scroll
+                        if (!isOnHomePage) {
+                          e.preventDefault();
+                          router.push(prefix + '/');
+                          setTimeout(() => {
+                            handleSectionClick(e, link.href);
+                          }, 500);
+                        }
+                      } : () => {
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
           <div className={styles.navMobileButtons}>
             <a
