@@ -13,6 +13,7 @@ export const captureUTMParams = () => {
   const utmCampaign = params.get("utm_campaign");
   const utmContent = params.get("utm_content");
   const utmTerm = params.get("utm_term");
+  const utmSourceFromRef = ref?.split("?")[1]?.split("=")[1];
 
   if (utmSource) {
     localStorage.setItem("utm_source", utmSource);

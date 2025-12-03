@@ -916,7 +916,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
             
             return (
-              <li key={link.href} className={styles.navLinkItem}>
+            <li key={link.href} className={styles.navLinkItem}>
                 {isSectionLink && isOnHomePage ? (
                   <a 
                     href={`#${link.href.replace('/', '')}`}
@@ -926,11 +926,11 @@ export default function NavbarClient({ links, ctas }: Props) {
                     {link.name}
                   </a>
                 ) : (
-                  <a 
-                    href={getHref(link.href)} 
-                    className={styles.navLinkText}
-                    target={link.target}
-                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+              <a 
+                href={getHref(link.href)} 
+                className={styles.navLinkText}
+                target={link.target}
+                rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
                     onClick={isSectionLink ? (e) => {
                       // If not on home page, navigate first then scroll
                       if (!isOnHomePage) {
@@ -941,11 +941,11 @@ export default function NavbarClient({ links, ctas }: Props) {
                         }, 500);
                       }
                     } : undefined}
-                  >
-                    {link.name}
-                  </a>
+              >
+                {link.name}
+              </a>
                 )}
-              </li>
+            </li>
             );
           })}
         </ul>
@@ -1043,7 +1043,7 @@ export default function NavbarClient({ links, ctas }: Props) {
               const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
               
               return (
-                <li key={link.href}>
+              <li key={link.href}>
                   {isSectionLink && isOnHomePage ? (
                     <a
                       href={`#${link.href.replace('/', '')}`}
@@ -1057,11 +1057,11 @@ export default function NavbarClient({ links, ctas }: Props) {
                       {link.name}
                     </a>
                   ) : (
-                    <a 
-                      href={getHref(link.href)} 
-                      className={styles.navMobileLink}
-                      target={link.target}
-                      rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                <a 
+                  href={getHref(link.href)} 
+                  className={styles.navMobileLink}
+                  target={link.target}
+                  rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
                       onClick={isSectionLink ? (e) => {
                         setIsMenuOpen(false);
                         // If not on home page, navigate first then scroll
@@ -1075,11 +1075,11 @@ export default function NavbarClient({ links, ctas }: Props) {
                       } : () => {
                         setIsMenuOpen(false);
                       }}
-                    >
-                      {link.name}
-                    </a>
+                >
+                  {link.name}
+                </a>
                   )}
-                </li>
+              </li>
               );
             })}
           </ul>
